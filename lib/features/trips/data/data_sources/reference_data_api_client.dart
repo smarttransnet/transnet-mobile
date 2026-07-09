@@ -34,7 +34,7 @@ class ReferenceDataApiClient {
 
   Future<List<TripCategoryMaterialRef>> getTripCategories() async {
     // Web app calls tripCategoryApi.getTripCategories({ isActive: true, pageSize: 1000 })
-    final response = await _apiClient.dio.get('api/trip-categories', queryParameters: {
+    final response = await _apiClient.dio.get('api/vehicle-category-mappings', queryParameters: {
       'isActive': true,
       'pageSize': 1000,
     });

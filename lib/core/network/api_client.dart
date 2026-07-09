@@ -16,7 +16,7 @@ class ApiClient {
 
   static String get _baseUrl {
     if (kReleaseMode) {
-      return 'http://transnet-api-alb-918364473.ap-southeast-1.elb.amazonaws.com/';
+      return 'https://transnet-515733857316.asia-southeast1.run.app/';
     }
     
     if (kIsWeb) {

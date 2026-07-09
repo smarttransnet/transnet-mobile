@@ -6,6 +6,14 @@ import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/trips/presentation/screens/trips_screen.dart';
 import '../features/trips/presentation/screens/trip_detail_screen.dart';
 import '../features/trips/presentation/screens/create_trip_screen.dart';
+import '../features/vehicles/presentation/screens/vehicles_screen.dart';
+import '../features/vehicles/presentation/screens/vehicle_detail_screen.dart';
+import '../features/vehicles/presentation/screens/vehicle_form_screen.dart';
+import '../features/vehicles/data/models/vehicle_model.dart';
+import '../features/drivers/presentation/screens/drivers_screen.dart';
+import '../features/drivers/presentation/screens/driver_detail_screen.dart';
+import '../features/drivers/presentation/screens/driver_form_screen.dart';
+import '../features/drivers/data/models/driver_model.dart';
 import '../core/storage/secure_storage_service.dart';
 
 // Provide the current auth state synchronously for the router.
@@ -63,6 +71,58 @@ final routerProvider = Provider<GoRouter>((ref) {
           return TripDetailScreen(tripId: id);
         },
       ),
+      GoRoute(
+        path: AppRoutes.vehicles,
+        name: AppRoutes.vehiclesName,
+        builder: (context, state) => const VehiclesScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.createVehicle,
+        name: AppRoutes.createVehicleName,
+        builder: (context, state) => const VehicleFormScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.vehicleDetails,
+        name: AppRoutes.vehicleDetailsName,
+        builder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return VehicleDetailScreen(vehicleId: id);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.editVehicle,
+        name: AppRoutes.editVehicleName,
+        builder: (context, state) {
+          final vehicle = state.extra as VehicleModel?;
+          return VehicleFormScreen(vehicle: vehicle);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.drivers,
+        name: AppRoutes.driversName,
+        builder: (context, state) => const DriversScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.createDriver,
+        name: AppRoutes.createDriverName,
+        builder: (context, state) => const DriverFormScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.driverDetails,
+        name: AppRoutes.driverDetailsName,
+        builder: (context, state) {
+          final id = state.pathParameters['id']!;
+          return DriverDetailScreen(driverId: id);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.editDriver,
+        name: AppRoutes.editDriverName,
+        builder: (context, state) {
+          final driver = state.extra as DriverModel?;
+          return DriverFormScreen(driver: driver);
+        },
+      ),
     ],
   );
 });
@@ -79,5 +139,21 @@ class AppRoutes {
   static const createTripName = 'createTrip';
   static const tripDetails = '/trips/:id';
   static const tripDetailsName = 'tripDetails';
+  static const vehicles = '/vehicles';
+  static const vehiclesName = 'vehicles';
+  static const createVehicle = '/vehicles/create';
+  static const createVehicleName = 'createVehicle';
+  static const vehicleDetails = '/vehicles/:id';
+  static const vehicleDetailsName = 'vehicleDetails';
+  static const editVehicle = '/vehicles/:id/edit';
+  static const editVehicleName = 'editVehicle';
+  static const drivers = '/drivers';
+  static const driversName = 'drivers';
+  static const createDriver = '/drivers/create';
+  static const createDriverName = 'createDriver';
+  static const driverDetails = '/drivers/:id';
+  static const driverDetailsName = 'driverDetails';
+  static const editDriver = '/drivers/:id/edit';
+  static const editDriverName = 'editDriver';
 }
 
