@@ -361,7 +361,17 @@ class _TripDetailScreenState extends ConsumerState<TripDetailScreen> {
             subtitle: 'The workflow for this trip has been completed and is now waiting for office approval.',
             borderColor: Colors.grey,
             backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-            children: [],
+            children: [
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  onPressed: () => context.go('/trips'),
+                  style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
+                  child: const Text('Back to Trips', style: TextStyle(fontSize: 16)),
+                ),
+              ),
+            ],
           );
         }
 
@@ -372,7 +382,17 @@ class _TripDetailScreenState extends ConsumerState<TripDetailScreen> {
           subtitle: 'The workflow for this trip has been completed and is now closed.',
           borderColor: Colors.grey,
           backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-          children: [],
+          children: [
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () => context.go('/trips'),
+                style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
+                child: const Text('Back to Trips', style: TextStyle(fontSize: 16)),
+              ),
+            ),
+          ],
         );
 
       default:
@@ -382,7 +402,17 @@ class _TripDetailScreenState extends ConsumerState<TripDetailScreen> {
           subtitle: 'The workflow for this trip has been closed.',
           borderColor: Colors.grey,
           backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-          children: [],
+          children: [
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () => context.go('/trips'),
+                style: OutlinedButton.styleFrom(padding: const EdgeInsets.symmetric(vertical: 16)),
+                child: const Text('Back to Trips', style: TextStyle(fontSize: 16)),
+              ),
+            ),
+          ],
         );
     }
   }

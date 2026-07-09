@@ -53,7 +53,24 @@ class AppDrawer extends ConsumerWidget {
                     context.goNamed(AppRoutes.tripsName);
                   },
                 ),
-                _DrawerItem(icon: Icons.people, title: 'Drivers', onTap: () {}),
+                _DrawerItem(
+                  icon: Icons.directions_car,
+                  title: 'Vehicles',
+                  isSelected: currentRouteName == AppRoutes.vehiclesName,
+                  onTap: () {
+                    Navigator.pop(context);
+                    context.goNamed(AppRoutes.vehiclesName);
+                  },
+                ),
+                _DrawerItem(
+                  icon: Icons.people,
+                  title: 'Drivers',
+                  isSelected: currentRouteName == AppRoutes.driversName,
+                  onTap: () {
+                    Navigator.pop(context);
+                    context.goNamed(AppRoutes.driversName);
+                  },
+                ),
                 _DrawerItem(icon: Icons.receipt_long, title: 'Invoices', onTap: () {}),
                 _DrawerItem(icon: Icons.settings, title: 'Settings', onTap: () {}),
               ],
